@@ -1,0 +1,10 @@
+:root {
+    --primary-color: 59, 52, 134;
+    --secondary-color: 119, 67, 219;
+    --accent-color: 255, 233, 177;
+
+    --lighter-primary-color: 67, 59, 153;
+
+    --white-color: 255, 255, 255;
+    --black-color: 32, 32, 32;
+}
