@@ -4,7 +4,24 @@
     --accent-color: 255, 233, 177;
 
     --lighter-primary-color: 67, 59, 153;
+    --darker-primary-color: 20, 13, 45;
+
+    --shadow-title: drop-shadow(0 1rem 10px rgba(var(--darker-primary-color), 0.3));
+    --shadow-title-invert: drop-shadow(0 -1rem 10px rgba(var(--darker-primary-color), 0.3));
 
     --white-color: 255, 255, 255;
     --black-color: 32, 32, 32;
+
+    /* thanks to https://www.magicpattern.design/tools/css-backgrounds */
+    --background-pattern-primary-color: linear-gradient(rgb(var(--lighter-primary-color)) 1px, transparent 1px), linear-gradient(to right, rgb(var(--lighter-primary-color)) 1px, rgb(var(--primary-color)) 1px);
+}
+
+::-moz-selection {
+    color: rgb(var(--white-color));
+    background: rgb(var(--secondary-color));
+}
+
+::selection {
+    color: rgb(var(--white-color));
+    background: rgb(var(--secondary-color));
 }
