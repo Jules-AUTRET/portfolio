@@ -55,8 +55,13 @@
 
     // Set up event listeners for mousemove
     onMount(() => {
-        let toolPositionX = imgElement.getBoundingClientRect().x - (pElement.getBoundingClientRect().width / 2);
-        let toolPositionY = imgElement.getBoundingClientRect().y - (pElement.getBoundingClientRect().height) - imgElement.getBoundingClientRect().height;
+        let windowElement = imgElement.parentElement?.parentElement;
+        if (!windowElement) return;
+
+        let toolPositionX = imgElement.getBoundingClientRect().x + (pElement.getBoundingClientRect().width / 8) - windowElement?.getBoundingClientRect().x;
+        let toolPositionY = imgElement.getBoundingClientRect().y + imgElement.getBoundingClientRect().height - windowElement?.getBoundingClientRect().y;
+
+        console.log(toolPositionX, toolPositionY);
 
 	    posX = tweened(toolPositionX, { duration: 200, easing: cubicOut });
         posY = tweened(toolPositionY, { duration: 200, easing: cubicOut });
@@ -107,13 +112,14 @@
         position: absolute;
 
         font-family: var(--paragraph-font);
+        font-size: 1rem;
 
         border-radius: calc(var(--border-radius) - var(--small-spacing));
         padding: 0.7rem 1rem;
 
         color: rgb(var(--white-color));
         background-color: rgba(var(--darker-primary-color), 0.75);
-        backdrop-filter: blur(10px);
+        /* backdrop-filter: blur(10px); TODO */
 
         width: max-content;
         pointer-events: none;
@@ -123,12 +129,6 @@
 
         transition: opacity 0.2s ease-in-out;
 
-        z-index: 10;
-    }
-
-    .tool-description::after {
-        content: '';
-        position: absolute;
         z-index: 10;
     }
 </style>

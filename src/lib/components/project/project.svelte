@@ -11,7 +11,7 @@
         <p class="project-description">{project.description} <br> <a href="{project.link}">Voir plus</a></p>
         <div class="tags">
             {#each project.tags as tag}
-                <p class="project-tag {tag.type}"><span>{tag.name}</span></p>
+                <p class="project-tag"><span>{tag.name}</span></p>
             {/each}
         </div>
     </div>
@@ -78,37 +78,17 @@
     .project-tag {
         font-family: var(--paragraph-font);
         font-size: calc(var(--paragraph-font-size) * 0.7);
+        font-weight: bold;
 
         padding: var(--very-small-spacing) var(--small-spacing);
         border-radius: var(--border-radius);
+
+        background-color: rgb(var(--primary-color));
     }
 
     .project-tag span {
         position: relative;
         top: -1px;
-    }
-
-    .realiser {
-        background-color: red;
-    }
-
-    .optimiser {
-        background-color: red;
-    }
-
-    .administrer {
-        background-color: red;
-    }
-
-    .gerer {
-        background-color: red;
-    }
-
-    .conduire {
-        background-color: red;
-    }
-
-    .collaborer {
-        background-color: red;
+        color: rgb(var(--white-color));
     }
 </style>

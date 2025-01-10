@@ -153,7 +153,7 @@
 			<p>L'une de mes principales qualités, c'est d'aborder la créativité avec légèreté – ça serait ennuyeux autrement. Je pense que c'est cette approche qui m’aide à innover.</p>
 			<p>En plus d'être développeur, j'aime passer mon temps à réaliser des photomontages, faire du <span id="do">p</span><span id="re">i</span><span id="mi">a</span><span id="fa">n</span><span id="sol">o</span> ou simplement jouer.</p>
 			<p>Si j'arrive à vous rendre heureux en visitant ce site, mon but sera atteint. Bon voyage !</p>
-			<a href="/">Vous voulez en savoir plus ?</a>
+			<a href="/a-propos">Vous voulez en savoir plus ?</a>
 		</span>
         <div class="images">
             <img src="/images/TerrificOcean.png" alt="Terrific ocean photoshop" loading="lazy">
@@ -192,7 +192,7 @@
     </section>
     <section id="my-projects">
         <h2 class="highlight">Mes projets ✨</h2>
-        <div id="projets">
+        <div id="projects">
             {#each projects as project}
                 <Project
                     project={project}
@@ -322,31 +322,10 @@
         filter: var(--shadow-title) brightness(1.15) saturate(0.85);
     }
 
-    .highlight {
-        background-image: linear-gradient(to right, #7A00FF, transparent);
-        background-position: bottom;
-        background-size: 100% 30%;
-        background-repeat: no-repeat;
-    }
-
     .paragraph {
         display: flex;
         flex-direction: column;
         gap: var(--small-spacing)
-    }
-
-    section h2 {
-        width: max-content;
-        height: max-content;
-        font-family: var(--title-font);
-        font-size: var(--title-font-size);
-    }
-
-    section p, section a {
-        font-family: var(--paragraph-font);
-        font-size: var(--paragraph-font-size);
-        font-weight: bold;
-        color: rgb(var(--darker-primary-color));
     }
 
     #my-universe {
@@ -457,7 +436,7 @@
 
     #my-tools h2 {
         margin-bottom: var(--large-spacing);
-        justify-self: center;
+        margin-inline: auto;
     }
 
     #windows {
@@ -469,9 +448,19 @@
     }
 
     #my-projects {
-        height: 100vh;
-        padding: 14rem 7vw;
+        height: max-content;
+        padding: 10rem 7vw 7vw 7vw;
         background-color: rgba(var(--primary-color), 0.2);
+    }
+
+    #my-projects h2 {
+        margin-bottom: var(--large-spacing);
+    }
+
+    #projects {
+        display: flex;
+        flex-direction: column;
+        gap: var(--medium-spacing);
     }
 
     @keyframes floating {

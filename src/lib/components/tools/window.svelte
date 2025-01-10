@@ -40,9 +40,7 @@
         border-radius: var(--border-radius);
 
         background-color: rgb(var(--darker-primary-color), 0.4);
-        backdrop-filter: blur(1px);
-
-        z-index: 0;
+        /*backdrop-filter: blur(1px); TODO fix this on linux firefox */
     }
 
     .tools {
@@ -65,6 +63,7 @@
         font-family: var(--paragraph-font);
         font-size: 1.3rem;
         font-weight: bold;
+        color: var(--white-color);
     }
 
     .buttons {
@@ -82,9 +81,9 @@
         border-radius: 50%;
     }
 
-    .red { background-color: #FF007A; }
-    .yellow { background-color: #FFD700; }
-    .green { background-color: #00FF7A; }
+    .red { background-color: rgb(var(--red-color)); }
+    .yellow { background-color: rgb(var(--yellow-color)); }
+    .green { background-color: rgb(var(--green-color)); }
 
     @media (max-width: 1815px) {
         :global(#windows .window:nth-child(odd)) {

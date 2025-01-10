@@ -30,6 +30,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Comic Sans MS';
+    src: url('fonts/Comic Sans MS.woff2') format('woff2'),
+    url('fonts/Comic Sans MS.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --hero-page-title-font: 'Halo Dek', cursive;
     --title-font: 'LTAvocado', sans-serif;
@@ -39,5 +47,33 @@
     --hero-page-detail-title-font-size: 1.8rem;
 
     --title-font-size: clamp(2rem, 3.5vw, 3rem);
-    --paragraph-font-size: clamp(1rem, 1.8vw, 1.4rem);
+    --paragraph-font-size: clamp(1rem, 1.6vw, 1.4rem);
+}
+
+section h2 {
+    width: max-content;
+    height: max-content;
+    font-family: var(--title-font);
+    font-size: var(--title-font-size);
+}
+
+section h3 {
+    width: max-content;
+    height: max-content;
+    font-family: var(--title-font);
+    font-size: calc(var(--title-font-size) * 0.75);
+}
+
+section p, section a {
+    font-family: var(--paragraph-font);
+    font-size: var(--paragraph-font-size);
+    font-weight: bold;
+    color: rgb(var(--darker-primary-color));
+}
+
+.highlight {
+    background-image: linear-gradient(to right, #7A00FF, transparent);
+    background-position: bottom;
+    background-size: 100% 30%;
+    background-repeat: no-repeat;
 }
