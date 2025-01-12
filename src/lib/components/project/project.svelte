@@ -72,7 +72,8 @@
 
     .tags {
         display: flex;
-        gap: var(--small-spacing);
+        flex-wrap: wrap;
+        gap: var(--very-small-spacing);
     }
 
     .project-tag {
@@ -90,5 +91,21 @@
         position: relative;
         top: -1px;
         color: rgb(var(--white-color));
+    }
+
+    @media (max-width: 990px) {
+        .project {
+            flex-direction: column;
+            gap: var(--small-spacing);
+        }
+
+        .project a {
+            width: 100%;
+        }
+
+        .project-info {
+            width: 100%;
+            padding: 0;
+        }
     }
 </style>

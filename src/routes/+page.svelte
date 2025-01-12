@@ -1,22 +1,50 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import Window from "$components/tools/window.svelte";
-    import Project from "$components/project/project.svelte"
-    import { programmingLangages } from "../data/tools/programmingLangages"
-    import { web } from "../data/tools/webTools"
-    import { bdd } from "../data/tools/bddTools"
-    import { conception } from "../data/tools/conceptionTools"
+    import Project from "$components/project/project.svelte";
+    import MailForm from "$components/mailForm/mailForm.svelte";
+    import { programmingLangages } from "../data/tools/programmingLangages";
+    import { web } from "../data/tools/webTools";
+    import { bdd } from "../data/tools/bddTools";
+    import { conception } from "../data/tools/conceptionTools";
     import { projects } from '../data/projects/projects';
 
     let title = "Jules";
 
     let innerWidth: number;
+    let numberOfColumnsBig: number;
+    let numberOfRowsBig: number;
+    let numberOfColumnsSmall: number;
+    let numberOfRowsSmall: number;
 
-    $: numberOfColumnsBig = innerWidth <= 1815 ? 4 : 3;
-    $: numberOfRowsBig = innerWidth <= 1815 ? 3 : 4;
+    export let form;
 
-    $: numberOfColumnsSmall = innerWidth <= 1815 ? 4 : 3;
-    $: numberOfRowsSmall = innerWidth <= 1815 ? 1 : 4;
+    $:  if (innerWidth <= 660) {
+            numberOfColumnsBig = 2;
+            numberOfRowsBig = 5;
+
+            numberOfColumnsSmall = 2;
+            numberOfRowsSmall = 2;
+
+        } else if (innerWidth <= 780) {
+            numberOfColumnsBig = 3;
+            numberOfRowsBig = 4;
+
+            numberOfColumnsSmall = 3;
+            numberOfRowsSmall = 2;
+        } else if (innerWidth <= 1815) {
+            numberOfColumnsBig = 4;
+            numberOfRowsBig = 3;
+
+            numberOfColumnsSmall = 4;
+            numberOfRowsSmall = 1;
+        } else {
+            numberOfColumnsBig = 3;
+            numberOfRowsBig = 4;
+
+            numberOfColumnsSmall = 3;
+            numberOfRowsSmall = 4;
+        }
 
     const noteDo = "/sounds/do.mp3";
     const noteRe = "/sounds/re.mp3";
@@ -145,7 +173,7 @@
 </header>
 
 <main>
-    <section id="my-universe">
+    <section id="my-univers">
         <h2 class="highlight">Mon univers 🪐</h2>
         <span class="paragraph">
 			<p>Je suis un créatif passionné par les défis techniques improbables, qui adore détourner ou automatiser des systèmes pour rendre possible des idées souvent amusantes ou farfelues, tout en y prenant un immense plaisir.</p>
@@ -195,10 +223,14 @@
         <div id="projects">
             {#each projects as project}
                 <Project
-                    project={project}
+                    project={project.data}
                 />
             {/each}
         </div>
+    </section>
+    <section id="contact">
+        <h2 class="highlight">Contactez moi !</h2>
+        <MailForm message={form} />
     </section>
 </main>
 
@@ -328,7 +360,7 @@
         gap: var(--small-spacing)
     }
 
-    #my-universe {
+    #my-univers {
         display: grid;
         grid-template-rows: 4rem auto;
         grid-template-columns: 52.5% 47.5%;
@@ -341,21 +373,22 @@
         background-color: rgba(var(--primary-color), 0.2);
     }
 
-    #my-universe h2 {
+    #my-univers h2 {
         grid-area: title;
     }
 
-    #my-universe p {
+    #my-univers p {
         grid-area: description;
         width: 95%;
     }
 
-    #my-universe a {
+    #my-univers a {
+        width: max-content;
         text-decoration: underline;
         color: rgba(var(--darker-primary-color), 0.6);
     }
 
-    #my-universe div { grid-area: image; }
+    #my-univers div { grid-area: image; }
 
     .oui-c-est-le-cas {
         position: relative;
@@ -447,9 +480,25 @@
 			"programmation BDD conception web";
     }
 
+    #contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--large-spacing);
+
+        height: 100vh;
+        padding: 12rem 7vw;
+
+        color: rgb(var(--white-color));
+        background-image: var(--background-pattern-primary-color);
+        background-size: 32px 32px;
+
+        filter: var(--shadow-title-invert);
+    }
+
     #my-projects {
         height: max-content;
-        padding: 10rem 7vw 7vw 7vw;
+        padding: 10rem 7vw 10rem 7vw;
         background-color: rgba(var(--primary-color), 0.2);
     }
 
@@ -512,55 +561,65 @@
     }
 
     @media (max-width: 1495px) {
-        #my-universe {
+        #my-univers {
             grid-template-areas:
 				"title"
 				"description"
 				"image";
             grid-template-rows: 4rem 1fr 1fr;
             grid-template-columns: 1fr;
-            padding: 10rem 7vw 7vw 7vw;
+            padding: 10rem 7vw 10rem 7vw;
         }
 
         .images {
-            height: 9rem;
+            display: flex;
+            height: 100%;
             border-radius: var(--border-radius);
+
+            min-height: 0;
         }
 
-        .images img:nth-child(1) {
-            top: 1rem;
-            left: 0;
-            width: 48vw;
-            height: 14vw;
+        .images img {
+            top: 0 !important;
+            left: 0 !important;
+
+            width: 33% !important;
+            height: 100% !important;
+        }
+    }
+
+    @media (max-width: 1280px) {
+        #my-tools {
+            height: max-content;
         }
 
-        .images img:nth-child(2) {
-            top: 5rem;
-            left: 0rem;
-            width: 40vw;
-            height: 13vw;
+        #windows {
+            grid-template:
+			"programmation"
+			"web"
+            "BDD"
+            "conception";
         }
 
-        .images img:nth-child(3) {
-            top: 0;
-            left: 0rem;
-            width: 45vw;
-            height: 14vw;
+        #arm-thumbs-up, #arm-ok { display: none; }
+        #arrow { top: 65%; }
+    }
+
+    @media (max-width: 990px) {
+        header p {
+            bottom: 0.5rem;
         }
 
-        .images img:nth-child(1):hover {
-            width: 28vw;
-            left: -7rem;
+        #projects {
+            gap: var(--xxl-spacing);
         }
 
-        .images img:nth-child(2):hover {
-            width: 19vw;
-            left: -7.5rem;
+        #contact {
+            height: max-content;
         }
 
-        .images img:nth-child(3):hover {
-            width: 21vw;
-            left: -14.5rem;
+        #my-tools {
+            padding-inline: 0;
         }
     }
 </style>

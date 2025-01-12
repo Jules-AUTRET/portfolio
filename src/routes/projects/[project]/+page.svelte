@@ -1,9 +1,9 @@
 <script lang="ts">
-    import { breizhIle } from '../../../data/projects/projects';
     import { onMount } from 'svelte';
-    import { page } from '$app/stores';
 
-    $: project = $page.params.project;
+    export let data;
+    const { projectData } = data;
+
     let imagesHolder: HTMLDivElement;
     let popup: HTMLElement;
     let popupImage: HTMLImageElement;
@@ -26,14 +26,14 @@
 </script>
 
 <section id="breizhile">
-    <h2 class="highlight">{project}</h2>
+    <h2 class="highlight">{projectData.data.shortTitle}</h2>
     <article class="contexte">
         <h3>Contexte</h3>
-        <p>L'association ALHaIZ Breizh (association fictive dans le cadre d'un projet d'étude), un regroupement de propriétaires de logements en Bretagne, souhaite créer une plateforme en ligne indépendante pour gérer la location saisonnière. L'objectif est de proposer une alternative qui serait locale et différente des autres platformes de location, tout en promouvant le tourisme breton et en respectant une charte éco-responsable.</p>
+        <p>{@html projectData.data.detail.context}</p>
         <div class="contexte-tags">
             <p>Compétences liées: </p>
             <div class="tags">
-                {#each breizhIle.tags as tag}
+                {#each projectData.data.tags as tag}
                     <p class="project-tag {tag.type}"><span>{tag.name}</span></p>
                 {/each}
             </div>
@@ -42,30 +42,40 @@
     <div class="separator"></div>
     <article class="problematique">
         <h3>Problématique</h3>
-        <p>Nous avons été mandaté afin concevoir et développer cette plateforme de A à Z. La mission inclut l’analyse des besoins, la rédaction des User Stories, la conception technique, et la livraison du site, comprenant un Front Office pour les visiteurs et un Back Office pour les propriétaires.</p>
-        <div class="project-images" bind:this={imagesHolder}>
-            <img src="/images/projects/breizh-ile/1.png" alt="test" style="grid-area: image1;">
-            <img src="/images/projects/breizh-ile/2.png" alt="test" style="grid-area: image2;">
-            <img src="/images/projects/breizh-ile/3.png" alt="test" style="grid-area: image3;">
-            <img src="/images/projects/breizh-ile/4.png" alt="test" style="grid-area: image4;">
-        </div>
-        <a href="/images/projects/breizh-ile/file.zip" download="file.zip"><svg id='Downloads_Folder_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#fff' opacity='0'/><g transform="matrix(1 0 0 1 12 12)" ><path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(var(--white-color)); fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -15)" d="M 20 6 L 12 6 L 10 4 L 4 4 C 2.9 4 2 4.9 2 6 L 2 18 C 2 19.1 2.9 20 4 20 L 20 20 C 21.1 20 22 19.1 22 18 L 22 8 C 22 6.9 21.1 6 20 6 z M 12 17 L 8 13 L 11 13 L 11 10 L 13 10 L 13 13 L 16 13 L 12 17 z" stroke-linecap="round" /></g></svg> Télécharger</a>
+        <p>{@html projectData.data.detail.problematic}</p>
     </article>
     <div class="separator"></div>
     <article class="realisation">
         <h3>Réalisation</h3>
-        <p>Nous avons commencé par réaliser une analyse des besoins de notre client. Ainsi, nous avons pu communiquer avec eux sur les différents aspects de ce projet pour éclaircir des demandes ou encore proposer de toutes nouvelles fonctionnalités. <br><br>Ensuite, nous avons réalisé une maquette interactive sur Figma pour le format desktop et mobile de notre front-office et back-office. <br><br>Nous nous sommes ensuite chargés de la réalisation du site lui-même. Il a été réalisé en PHP natif pour le front et le back, Sass pour la mise en forme et une API réalisée en C pour l'accès aux données de notre base de données MySQL.</p>
+        <p>{@html projectData.data.detail.realisation}</p>
+        <div class="project-images" bind:this={imagesHolder}>
+            <!-- TODO Make a real alt -->
+            <img src={projectData.data.detail.image1} alt="test" style="grid-area: image1;">
+            <img src={projectData.data.detail.image2} alt="test" style="grid-area: image2;">
+            <img src={projectData.data.detail.image3} alt="test" style="grid-area: image3;">
+            <img src={projectData.data.detail.image4} alt="test" style="grid-area: image4;">
+        </div>
+        {#if projectData.data.file !== ""}
+            <a href={projectData.data.file} download="{projectData.link}.zip"><svg id='Downloads_Folder_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#fff' opacity='0'/><g transform="matrix(1 0 0 1 12 12)" ><path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(var(--white-color)); fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -15)" d="M 20 6 L 12 6 L 10 4 L 4 4 C 2.9 4 2 4.9 2 6 L 2 18 C 2 19.1 2.9 20 4 20 L 20 20 C 21.1 20 22 19.1 22 18 L 22 8 C 22 6.9 21.1 6 20 6 z M 12 17 L 8 13 L 11 13 L 11 10 L 13 10 L 13 13 L 16 13 L 12 17 z" stroke-linecap="round" /></g></svg> Télécharger</a>
+        {/if}
     </article>
     <div class="separator"></div>
     <article class="conclusion">
         <h3>Conclusion</h3>
-        <p>La plateforme a été livrée dans les temps. Suite à la review, le client s'est dit satisfait du résultat final. Ce projet m'a appris beaucoup de choses : l'autonomie offerte par celui-ci nous a permis de nous tromper, comprendre et apprendre. En plus de la maquette et du site lui-même, j'ai été en charge de la réalisation de l'API en C, ce qui s'est révélé complexe et exigeant. Il s'agit sûrement de l'un de mes plus gros projets à ce jour.</p>
+        <p>{@html projectData.data.detail.conclusion}</p>
     </article>
-    <div class="separator"></div>
-    <article class="collaboration">
-        <h3>Collaboration</h3>
-    </article>
-    <p style="color: rgba(var(--white-color), 0.8)">Réalisé le 30/06/2024</p>
+    {#if projectData.data.detail.collaborators.length > 0}
+        <div class="separator"></div>
+        <article class="collaboration">
+            <h3>Collaboration</h3>
+            <div class="collaborators">
+                {#each projectData.data.detail.collaborators as collaborator}
+                    <a href={collaborator.link}><img src={collaborator.image} alt={collaborator.name} title={collaborator.name}></a>
+                {/each}
+            </div>
+        </article>
+    {/if}
+    <p style="color: rgba(var(--white-color), 0.8)">Réalisé le {projectData.data.detail.creationDate.toLocaleDateString("fr")}</p>
 </section>
 
 <aside class="popup-image" bind:this={popup}>
@@ -101,7 +111,7 @@
         gap: var(--small-spacing);
     }
 
-    .problematique a {
+    .realisation a {
         padding: var(--small-spacing);
 
         text-align: center;
@@ -151,6 +161,8 @@
         gap: var(--small-spacing);
 
         height: 35rem;
+        min-height: 0;
+        min-width: 0;
     }
 
     .project-images img {
@@ -163,11 +175,33 @@
 
         cursor: pointer;
         transition: all 0.15s ease-in-out;
+
+        overflow: hidden;
+        min-width: 0;
     }
 
     .project-images img:hover {
         transform: translateY(-1rem);
         filter: var(--shadow-title);
+    }
+
+    .collaborators {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--small-spacing);
+    }
+
+    .collaborators a img {
+        width: 128px;
+        height: 128px;
+
+        border-radius: var(--border-radius);
+
+        transition: all 0.15s ease-in-out;
+    }
+
+    .collaborators a img:hover {
+        transform: scale(1.1);
     }
 
     .separator {

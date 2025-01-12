@@ -40,7 +40,7 @@
         <div id="detail-text">
             <p>Salut ! Je suis Jules AUTRET, développeur passionné et curieux de nature qui adore explorer les frontières entre créativité et technologie. Né un 21 juillet, j'ai actuellement {age} ans et je consacre mon énergie à créer, apprendre et coder des projets qui ont du sens, tout en gardant un amour et une passion pour ce qui n'en ont pas toujours.</p>
             <h3>Mon parcours : Pourquoi l'informatique ?</h3>
-            <p>Depuis mes premiers pas avec Scratch au collège jusqu'à mes projets plus avancés aujourd'hui, je pense que j'ai toujours aimé ça. Depuis, j’ai appris à maîtriser des langages comme C, Java, C#, du web avec HTML, CSS, JS et tous les frameworks que je découvre ou encore Python celui avec qui tout a commencé. <br><br> Aujourd'hui, je poursuis un but informatique  à l’<a href="https://iut-lannion.univ-rennes.fr/">IUT de Lannion</a>.</p>
+            <p>Depuis mes premiers pas avec Scratch au collège jusqu'à mes projets plus avancés aujourd'hui, je pense que j'ai toujours aimé ça. Depuis, j’ai appris à maîtriser des langages comme C, Java, C#, du web avec HTML, CSS, JS et tous les frameworks que je découvre ou encore Python celui avec qui tout a commencé. <br><br> Aujourd'hui, je poursuis un BUT informatique  à l’<a href="https://iut-lannion.univ-rennes.fr/">IUT de Lannion</a>.</p>
             <h3>Pourquoi collaborer avec moi ?</h3>
             <p>Comme vous avez pu le comprendre, j'essaie de vivre dans un univers où rigueur et créativité cohabitent ensemble. Je suis convaincu qu'une approche légère permet d'innover, tout en rendant les projets plus agréable pour tout le monde. Je suis curieux, sérieux et j'adore les défis techniques, j'espère que cela vous convainc.</p>
         </div>

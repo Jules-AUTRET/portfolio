@@ -94,4 +94,16 @@
             place-self: start;
         }
     }
+    
+    @media (max-width: 1280px) {
+        :global(#windows .window) {
+            place-self: center !important;
+        }
+    }
+
+    @media (max-width: 660px) {
+        .buttons {
+            display: none;
+        }
+    }
 </style>

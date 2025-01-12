@@ -1,12 +1,14 @@
 import { error } from '@sveltejs/kit';
+import { projects } from '../../../data/projects/projects';
 
 export async function load({ params }) {
-    const validParams = ['foo', 'bar'];
-    const { project } = params;
+    const { project } = params; // Dynamic parameter
 
-    if (!validParams.includes(project)) {
-        throw error(404, 'Page not found');
+    const projectData = projects.find((p) => p.link === project);
+
+    if (!projectData) {
+        throw error(404, 'Project not found');
     }
 
-    return { project };
+    return { projectData };
 }

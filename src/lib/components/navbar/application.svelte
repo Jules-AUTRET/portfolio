@@ -48,14 +48,14 @@
 
     p {
         position: fixed;
-        bottom: 7.5rem;
 
         border-radius: calc(var(--border-radius) - var(--small-spacing));
         padding: 0.7rem 1rem;
 
         color: rgb(var(--white-color));
-        background-color: rgba(var(--darker-primary-color), 0.4);
-        backdrop-filter: blur(10px);
+        background-color: rgba(var(--darker-primary-color), 0.7);
+
+        backdrop-filter: blur(5px);
 
         font-family: var(--paragraph-font);
         font-weight: bold;
@@ -73,7 +73,7 @@
             opacity: 0;
         }
         100% {
-            bottom: 7.5rem;
+            bottom: 7.7rem;
             opacity: 1;
         }
     }

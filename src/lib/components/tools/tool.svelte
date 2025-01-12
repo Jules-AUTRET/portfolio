@@ -61,8 +61,6 @@
         let toolPositionX = imgElement.getBoundingClientRect().x + (pElement.getBoundingClientRect().width / 8) - windowElement?.getBoundingClientRect().x;
         let toolPositionY = imgElement.getBoundingClientRect().y + imgElement.getBoundingClientRect().height - windowElement?.getBoundingClientRect().y;
 
-        console.log(toolPositionX, toolPositionY);
-
 	    posX = tweened(toolPositionX, { duration: 200, easing: cubicOut });
         posY = tweened(toolPositionY, { duration: 200, easing: cubicOut });
 
@@ -118,7 +116,7 @@
         padding: 0.7rem 1rem;
 
         color: rgb(var(--white-color));
-        background-color: rgba(var(--darker-primary-color), 0.75);
+        background-color: rgba(var(--darker-primary-color), 0.7);
         /* backdrop-filter: blur(10px); TODO */
 
         width: max-content;
