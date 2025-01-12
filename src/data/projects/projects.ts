@@ -40,7 +40,7 @@ export const breizhIle: Project = {
     link: "/projects/breizh-ile",
     image: "/images/projects/breizh-ile/1.png",
     alt: "Mon projet",
-    file: "/images/projects/breizh-ile/file.zip",
+    file: "",
     tags: [realiseTag, optimiserTag, administrerTag, gererTag, conduireTag, collaborerTag],
     detail: {
         context: "L'association ALHaIZ Breizh (association fictive dans le cadre d'un projet d'étude), un regroupement de propriétaires de logements en Bretagne, souhaite créer une plateforme en ligne indépendante pour gérer la location saisonnière. L'objectif est de proposer une alternative qui serait locale et différente des autres platformes de location, tout en promouvant le tourisme breton et en respectant une charte éco-responsable.",
@@ -86,7 +86,7 @@ export const LLTK: Project = {
     link: "/projects/LLTK",
     image: "/images/projects/LLTK/1.png",
     alt: "Mon projet",
-    file: "/images/projects/breizh-ile/file.zip",
+    file: "",
     tags: [realiseTag, optimiserTag],
     detail: {
         context: "Dans le cadre d’un projet personnel, j’ai souhaité créer un jeu vidéo complet avec Godot Engine, mon moteur de jeu préféré. Mon objectif était de concevoir un jeu simple et stratégique, basé sur des dialogues interactifs et des choix moraux, offrant une durée de vie \"infinie\". Ce projet m’a permis d’explorer toutes les étapes de création, de la conception graphique à la publication en ligne.",

@@ -37,7 +37,7 @@
         color: rgb(var(--white-color));
         padding: var(--medium-spacing);
 
-        backdrop-filter: blur(2px);
+        /* backdrop-filter: blur(2px); TODO */
 
         background-color: rgba(var(--darker-primary-color), 0.4);
         border: none;

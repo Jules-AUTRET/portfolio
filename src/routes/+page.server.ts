@@ -1,6 +1,8 @@
 import { SMTP_USERNAME } from '$env/static/private';
 import transporter from '../lib/mailer/emailSetup';
 
+export const prerender = false;
+
 export const actions = {
     default: async ({ request }) => {
         try {
