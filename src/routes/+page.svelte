@@ -17,8 +17,6 @@
     let numberOfColumnsSmall: number;
     let numberOfRowsSmall: number;
 
-    export let form;
-
     $:  if (innerWidth <= 660) {
             numberOfColumnsBig = 2;
             numberOfRowsBig = 5;
@@ -230,7 +228,7 @@
     </section>
     <section id="contact">
         <h2 class="highlight">Contactez moi !</h2>
-        <MailForm message={form} />
+        <MailForm />
     </section>
 </main>
 
@@ -299,11 +297,11 @@
     }
 
     #star1 {
-        top: 30%;
-        left: 30%;
+        top: 25%;
+        left: 26%;
 
-        height: 96px;
-        width: 96px;
+        height: 92px;
+        width: 92px;
     }
 
     #star1 > path { fill: #FF007A; }
@@ -321,8 +319,8 @@
     #star2 > path { fill: #FFD700; }
 
     #star3 {
-        top: 67%;
-        left: 40%;
+        top: 68%;
+        left: 38%;
 
         height: 28px;
         width: 28px;
@@ -368,7 +366,7 @@
 			"title image"
 			"description image";
         gap: var(--large-spacing);
-        height: 100vh;
+        min-height: 100vh;
         padding: 14rem 7vw;
         background-color: rgba(var(--primary-color), 0.2);
     }
@@ -457,7 +455,7 @@
     }
 
     #my-tools {
-        height: 100vh;
+        min-height: 100vh;
         padding: 12rem 7vw;
 
         color: rgb(var(--white-color));
@@ -486,7 +484,7 @@
         align-items: center;
         gap: var(--large-spacing);
 
-        height: 100vh;
+        min-height: 100vh;
         padding: 12rem 7vw;
 
         color: rgb(var(--white-color));
@@ -621,5 +619,12 @@
         #my-tools {
             padding-inline: 0;
         }
+
+        #my-univers {
+            min-height: 0;
+            grid-template-rows: 4rem 1fr;
+        }
+
+        .images { display: none; }
     }
 </style>

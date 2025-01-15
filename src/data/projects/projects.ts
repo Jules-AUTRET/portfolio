@@ -40,7 +40,7 @@ export const breizhIle: Project = {
     link: "/projects/breizh-ile",
     image: "/images/projects/breizh-ile/1.png",
     alt: "Mon projet",
-    file: "",
+    file: "/images/projects/breizh-ile/breizh-ile.zip",
     tags: [realiseTag, optimiserTag, administrerTag, gererTag, conduireTag, collaborerTag],
     detail: {
         context: "L'association ALHaIZ Breizh (association fictive dans le cadre d'un projet d'étude), un regroupement de propriétaires de logements en Bretagne, souhaite créer une plateforme en ligne indépendante pour gérer la location saisonnière. L'objectif est de proposer une alternative qui serait locale et différente des autres platformes de location, tout en promouvant le tourisme breton et en respectant une charte éco-responsable.",
