@@ -1,3 +1,4 @@
+/*
 import { SMTP_USERNAME } from '$env/static/private';
 import transporter from '../../../lib/mailer/emailSetup';
 
@@ -43,3 +44,4 @@ export const POST = async ({ request }) => {
         );
     }
 };
+ */
