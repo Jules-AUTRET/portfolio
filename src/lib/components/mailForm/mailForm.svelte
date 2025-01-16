@@ -1,28 +1,19 @@
 <script lang="ts">
     import { enhance } from '$app/forms';
 
-    let message = '';
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        const response = await fetch('/api/mail', {
-            method: 'POST',
-            body: formData,
-        });
-        const result = await response.json();
-        message = result.success || result.error;
-    };
+    export let message;
 </script>
 
-<form method="POST" action="/api/mail" use:enhance on:submit={handleSubmit}>
+<form method="POST" use:enhance>
     <div class="inline">
         <input type="text" name="name" id="name" placeholder="Entrez votre nom / entreprise" required>
         <input type="email" name="email" id="email" placeholder="Entrez votre email" required>
     </div>
     <textarea name="message" id="message" placeholder="Entrez votre message" required></textarea>
     <button type="submit">Envoyer</button>
-    <p id="form-return">{message}</p>
+    {#if message?.message}
+        <p id="form-return">{message.message}</p>
+    {/if}
 </form>
 
 <style>

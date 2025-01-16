@@ -17,6 +17,8 @@
     let numberOfColumnsSmall: number;
     let numberOfRowsSmall: number;
 
+    export let form;
+
     $:  if (innerWidth <= 660) {
             numberOfColumnsBig = 2;
             numberOfRowsBig = 5;
@@ -228,7 +230,7 @@
     </section>
     <section id="contact">
         <h2 class="highlight">Contactez moi !</h2>
-        <MailForm />
+        <MailForm message={form} />
     </section>
 </main>
 

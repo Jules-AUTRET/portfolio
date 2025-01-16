@@ -36,11 +36,11 @@ export const actions = {
             await sendEmail(message);
 
             return {
-                success: "Email envoyé ! Merci !",
+                message: "Email envoyé ! Merci !",
             };
         } catch (error) {
             return {
-                error: "Il y a eu une erreur lors de l'envoi de votre mail, veuillez réessayer. X",
+                message: "Il y a eu une erreur lors de l'envoi de votre mail, veuillez réessayer. X",
             };
         }
     }

@@ -1,5 +1,4 @@
 import nodemailer from "nodemailer";
-/*
 import { SMTP, SMTP_PORT, SMTP_USERNAME, SMTP_PASSWORD } from "$env/static/private";
 
 let transporter = nodemailer.createTransport({
@@ -21,4 +20,3 @@ transporter.verify(function (error, success) {
 });
 
 export default transporter;
-*/
