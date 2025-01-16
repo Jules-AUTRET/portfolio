@@ -1,5 +1,6 @@
 import adapter from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { breizhIle } from './src/data/projects/projects.js';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -13,7 +14,14 @@ const config = {
 		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 		adapter: adapter({}),
 		prerender: {
-			entries: ["*"]
+			entries: [
+				"/projects/breizh-ile",
+				"/projects/puissance4",
+				"/projects/LLTK",
+				"/projects/outil-info-schema",
+				"/projects/team-building",
+				"/projects/automatisation",
+			]
 		}
 	}
 };
