@@ -8,21 +8,21 @@ const figma: Tool = {
 };
 
 const photoshop: Tool = {
-	image: '/images/tools/Photoshop-wiktionary.org.png',
+	image: '/images/tools/Photoshop-wiktionary.org.webp',
 	alt: "Logiciel d'édition d'image Photoshop",
 	description: "Logiciel d'édition d'image Photoshop",
 	mastery: Mastery.VeryHigh,
 };
 
 const premierPro: Tool = {
-	image: '/images/tools/PremierePro-wikipedia.png',
+	image: '/images/tools/PremierePro-wikipedia.webp',
 	alt: 'Logiciel de montage vidéo Premiere Pro',
 	description: 'Logiciel de montage vidéo Premiere Pro',
 	mastery: Mastery.High,
 };
 
 const UML: Tool = {
-	image: '/images/tools/uml-sparks-formation.com.png',
+	image: '/images/tools/uml-sparks-formation.com.webp',
 	alt: 'Unified Modeling Language (UML)',
 	description: 'Unified Modeling Language (UML)',
 	mastery: Mastery.High,

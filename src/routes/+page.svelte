@@ -3,6 +3,7 @@
     import Window from "$components/tools/window.svelte";
     import Project from "$components/project/project.svelte";
     import MailForm from "$components/mailForm/mailForm.svelte";
+    import Seo from "$components/seo/seo.svelte";
     import { programmingLangages } from "../data/tools/programmingLangages";
     import { web } from "../data/tools/webTools";
     import { bdd } from "../data/tools/bddTools";
@@ -149,6 +150,8 @@
 
 <svelte:window bind:innerWidth />
 
+<Seo />
+
 <header>
     <canvas bind:this={confettiCanvas} id="confetti"></canvas>
 
@@ -164,8 +167,8 @@
 
     <a href="/#my-univers" aria-label="Aller à la section 'Mon univers'"><svg id='arrow' width='28' height='28' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000' opacity='0'/><g transform="matrix(0.83 0 0 0.83 12 12)" ><path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(var(--white-color)); fill-rule: nonzero; opacity: 1;" transform=" translate(-13, -12.23)" d="M 13 10.59375 L 21.765625 19.179688 C 22.15625 19.5625 22.78125 19.558594 23.171875 19.171875 L 24.707031 17.636719 C 25.097656 17.242188 25.097656 16.609375 24.703125 16.21875 L 13.707031 5.292969 C 13.511719 5.097656 13.257813 5 13 5 C 12.742188 5 12.488281 5.097656 12.292969 5.292969 L 1.296875 16.21875 C 0.902344 16.609375 0.902344 17.242188 1.292969 17.636719 L 2.828125 19.171875 C 3.21875 19.558594 3.84375 19.5625 4.234375 19.179688 Z" stroke-linecap="round" /></g></svg></a>
 
-    <img id="arm-thumbs-up" class="arm" src="/images/arm-thumbs-up.png" alt="arm-thumbs-up" loading="lazy"/>
-    <img id="arm-ok" class="arm" src="/images/arm-ok.png" alt="arm-ok" loading="lazy"/>
+    <img id="arm-thumbs-up" class="arm" src="/images/hero-page/arm-thumbs-up.webp" alt="arm-thumbs-up" loading="lazy"/>
+    <img id="arm-ok" class="arm" src="/images/hero-page/arm-ok.webp" alt="arm-ok" loading="lazy"/>
 
     <svg id='star1' class="star-4-point" xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='50px' height='50px' viewBox='0 0 50 50' style='enable-background:new 0 0 50 50;' xml:space='preserve'><path d='M25,50c0,0,1.325-8.413,8.957-16.043C41.587,26.325,50,25,50,25l0,0c0,0-8.413-1.325-16.043-8.957C26.325,8.413,25,0,25,0 l0,0c0,0-1.325,8.413-8.957,16.043C8.413,23.675,0,25,0,25l0,0c0,0,8.413,1.325,16.043,8.957C23.675,41.588,25,50,25,50'/></svg>
     <svg id='star2' class="star-4-point" xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='50px' height='50px' viewBox='0 0 50 50' style='enable-background:new 0 0 50 50;' xml:space='preserve'><path d='M25,50c0,0,1.325-8.413,8.957-16.043C41.587,26.325,50,25,50,25l0,0c0,0-8.413-1.325-16.043-8.957C26.325,8.413,25,0,25,0 l0,0c0,0-1.325,8.413-8.957,16.043C8.413,23.675,0,25,0,25l0,0c0,0,8.413,1.325,16.043,8.957C23.675,41.588,25,50,25,50'/></svg>
@@ -184,9 +187,9 @@
 			<a href="/a-propos">Vous voulez en savoir plus ?</a>
 		</span>
         <div class="images">
-            <img src="/images/TerrificOcean.png" alt="Terrific ocean photoshop" loading="lazy">
-            <img src="/images/FromTheSpace2.png" alt="From the space photoshop" loading="lazy">
-            <img src="/images/MozART.png" alt="MorART photoshop" loading="lazy">
+            <img src="/images/my-univers/TerrificOcean.webp" alt="Terrific ocean photoshop" loading="lazy">
+            <img src="/images/my-univers/FromTheSpace.webp" alt="From the space photoshop" loading="lazy">
+            <img src="/images/my-univers/MozART.webp" alt="MorART photoshop" loading="lazy">
         </div>
     </section>
     <section id="my-tools">
@@ -348,9 +351,9 @@
     #arm-ok {
         width: 39%;
         top: 45%;
-        left: -45%;
-        transform-origin: 100% 80%;
-        animation: rotating-inverted 2.2s infinite alternate ease-in-out;
+        left: -6%;
+        transform-origin: 0 80%;
+        animation: rotating2 2.2s infinite alternate ease-in-out;
         filter: var(--shadow-title) brightness(1.15) saturate(0.85);
     }
 
@@ -375,6 +378,7 @@
 
     #my-univers h2 {
         grid-area: title;
+        color: rgb(var(--darker-primary-color));
     }
 
     #my-univers p {
@@ -504,6 +508,7 @@
 
     #my-projects h2 {
         margin-bottom: var(--large-spacing);
+        color: rgb(var(--darker-primary-color));
     }
 
     #projects {
@@ -530,12 +535,12 @@
         }
     }
 
-    @keyframes rotating-inverted {
+    @keyframes rotating2 {
         0% {
-            transform: rotate(0deg) scaleX(-1);
+            transform: rotate(0deg);
         }
         100% {
-            transform: rotate(-15deg) scaleX(-1);
+            transform: rotate(-15deg);
         }
     }
 

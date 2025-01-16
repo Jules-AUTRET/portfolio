@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
+    import Seo from "$components/seo/seo.svelte";
 
     const birthDate = new Date("2004-07-21");
 
@@ -27,6 +28,8 @@
     });
 </script>
 
+<Seo />
+
 <section id="a-propos">
     <div id="detail">
         <div id="detail-title">
@@ -45,8 +48,8 @@
             <p>Comme vous avez pu le comprendre, j'essaie de vivre dans un univers où rigueur et créativité cohabitent ensemble. Je suis convaincu qu'une approche légère permet d'innover, tout en rendant les projets plus agréable pour tout le monde. Je suis curieux, sérieux et j'adore les défis techniques, j'espère que cela vous convainc.</p>
         </div>
         <div id="detail-images">
-            <img id="non-transparent" src="/images/moi.png" alt="Moi fond">
-            <img id="transparent" src="/images/moitransparent.png" alt="Moi" bind:this={topSecret}>
+            <img id="non-transparent" src="/images/a-propos/background.webp" alt="Background" loading="lazy">
+            <img id="transparent" src="/images/a-propos/moi.webp" alt="Moi" bind:this={topSecret} loading="lazy">
         </div>
     </div>
 </section>
@@ -149,5 +152,16 @@
 
     #non-transparent {
         height: 18rem;
+    }
+
+    @media (max-width: 1000px) {
+        #a-propos { height: auto; }
+        #detail { grid-template-columns: 1fr; }
+        #detail-images { display: none; }
+    }
+
+    @media (max-width: 540px) {
+        #detail-text h3 { width: auto; }
+        #social-links { display: none; }
     }
 </style>

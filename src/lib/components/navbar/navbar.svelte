@@ -3,11 +3,11 @@
     import { onMount } from 'svelte';
 
     let pages = [
-        {name: "Mon univers", url: "/#my-univers", image: "/images/icon-my-univers.png"},
-        {name: "Mes outils", url: "/#my-tools", image: "/images/icon-my-tools.png"},
-        {name: "Mes projets", url: "/#my-projects", image: "/images/icon-my-projects.png"},
-        {name: "Contact", url: "/#contact", image: "/images/icon-contact.png"},
-        {name: "Mon CV", url: "/cv/Jules-AUTRET-cv.pdf", image: "/images/icon-cv.png"},
+        {name: "Mon univers", url: "/#my-univers", image: "/images/navbar/icon-my-univers.png"},
+        {name: "Mes outils", url: "/#my-tools", image: "/images/navbar/icon-my-tools.png"},
+        {name: "Mes projets", url: "/#my-projects", image: "/images/navbar/icon-my-projects.png"},
+        {name: "Contact", url: "/#contact", image: "/images/navbar/icon-contact.png"},
+        {name: "Mon CV", url: "/cv/Jules-AUTRET-cv.pdf", image: "/images/navbar/icon-cv.png"},
     ]
 
     let moreAppButton: SVGSVGElement;

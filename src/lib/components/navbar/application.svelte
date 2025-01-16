@@ -6,7 +6,7 @@
 
 <a class="app" href="{url}">
     <p>{name}</p>
-    <img src="{image}" alt="{name} image">
+    <img src="{image}" alt="{name} image" loading="lazy">
 </a>
 
 <style>

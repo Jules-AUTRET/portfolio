@@ -33,6 +33,8 @@
     input, textarea {
         width: 100%;
 
+        caret-color: rgb(var(--white-color));
+
         font-family: var(--paragraph-font);
         font-weight: bold;
 

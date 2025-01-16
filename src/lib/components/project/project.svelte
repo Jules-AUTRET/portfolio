@@ -5,7 +5,7 @@
 </script>
 
 <div class="project">
-    <a href="{project.link}"><img class="project-image" src="{project.image}" alt="{project.alt}"></a>
+    <a href="{project.link}"><img class="project-image" src="{project.image}" alt="{project.alt}" loading="lazy"></a>
     <div class="project-info">
         <h4 class="project-title">{project.title}</h4>
         <p class="project-description">{project.description} <br> <a href="{project.link}">Voir plus</a></p>

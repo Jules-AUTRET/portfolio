@@ -9,5 +9,5 @@
     --border-radius: 2rem;
 
     --100-width-without-border: calc(100% - var(--small-spacing) * 2);
-    --100-height-without-border: calc(100vh - var(--small-spacing) * 2);
+    --100-height-without-border: calc(100dvh - var(--small-spacing) * 2);
 }

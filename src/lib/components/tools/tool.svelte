@@ -87,6 +87,7 @@
     class="tool"
     src="{image}"
     alt="{alt}"
+    loading="lazy"
     bind:this={imgElement}
     on:mouseenter={handleMouseEnter}
     on:mouseleave={handleMouseLeave}
@@ -100,6 +101,8 @@
         border-radius: calc(var(--border-radius) - 24px);
         transition: all 0.1s ease-in-out;
         cursor: pointer;
+
+        object-fit: contain;
     }
 
     .tool:hover {
