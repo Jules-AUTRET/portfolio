@@ -1,7 +1,7 @@
 <script lang="ts">
     let title = "Jules AUTRET";
     let description = "Je suis un créatif passionné par les défis techniques improbables, détourner ou automatiser des systèmes pour rendre possible des idées souvent amusantes ou complètement connes, tout en y prenant un immense plaisir.";
-    let url = "jules-autret.dev";
+    let url = "https://jules-autret.dev";
     let image = "";
 </script>
 
