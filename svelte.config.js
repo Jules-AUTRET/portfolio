@@ -1,6 +1,5 @@
 import adapter from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import { breizhIle } from './src/data/projects/projects.js';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
