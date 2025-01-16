@@ -14,6 +14,7 @@ const config = {
 		adapter: adapter({}),
 		prerender: {
 			entries: [
+				"/a-propos",
 				"/projects/breizh-ile",
 				"/projects/puissance4",
 				"/projects/LLTK",
