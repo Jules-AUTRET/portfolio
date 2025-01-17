@@ -42,7 +42,7 @@
         width: 76px;
     }
 
-    img {
+    .app img {
         border-radius: calc(var(--border-radius) - var(--small-spacing));
     }
 
