@@ -1,39 +1,39 @@
 @font-face {
     font-family: 'Halo Dek';
-    src: url('fonts/HaloDek.woff2') format('woff2'),
-    url('fonts/HaloDek.woff') format('woff');
+    src: url('/fonts/HaloDek.woff2') format('woff2'),
+    url('/fonts/HaloDek.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'LTAvocado';
-    src: url('fonts/LTAvocado-Bold.woff2') format('woff2'),
-    url('fonts/LTAvocado-Bold.woff') format('woff');
+    src: url('/fonts/LTAvocado-Bold.woff2') format('woff2'),
+    url('/fonts/LTAvocado-Bold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Lato';
-    src: url('fonts/Lato-Regular.woff2') format('woff2'),
-    url('fonts/Lato-Regular.woff') format('woff');
+    src: url('/fonts/Lato-Regular.woff2') format('woff2'),
+    url('/fonts/Lato-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Lato';
-    src: url('fonts/Lato-Bold.woff2') format('woff2'),
-    url('fonts/Lato-Bold.woff') format('woff');
+    src: url('/fonts/Lato-Bold.woff2') format('woff2'),
+    url('/fonts/Lato-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Comic Sans MS';
-    src: url('fonts/Comic Sans MS.woff2') format('woff2'),
-    url('fonts/Comic Sans MS.woff') format('woff');
+    src: url('/fonts/Comic Sans MS.woff2') format('woff2'),
+    url('/fonts/Comic Sans MS.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
