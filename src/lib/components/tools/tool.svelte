@@ -93,7 +93,7 @@
     on:mouseleave={handleMouseLeave}
 >
 
-<style>
+<style lang="postcss">
     .tool {
         width: 96px;
         height: 96px;
@@ -113,6 +113,7 @@
         position: absolute;
 
         font-family: var(--paragraph-font);
+        font-weight: bold;
         font-size: 1rem;
 
         border-radius: calc(var(--border-radius) - var(--small-spacing));

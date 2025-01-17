@@ -9,7 +9,9 @@
     <img src="{image}" alt="{name} image" loading="lazy">
 </a>
 
-<style>
+<style lang="postcss">
+    @import "/animations.css";
+
     .app {
         display: flex;
         flex-direction: column;
@@ -65,16 +67,5 @@
 
         opacity: 0;
         pointer-events: none;
-    }
-
-    @keyframes appear {
-        0% {
-            bottom: 6.5rem;
-            opacity: 0;
-        }
-        100% {
-            bottom: 7.7rem;
-            opacity: 1;
-        }
     }
 </style>

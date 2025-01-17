@@ -31,7 +31,7 @@
 </div>
 
 
-<style>
+<style lang="postcss">
     .window {
         position: relative;
         width: max-content;

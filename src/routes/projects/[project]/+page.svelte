@@ -86,7 +86,12 @@
     <img src="" alt="Aggrandi" bind:this={popupImage} loading="lazy">
 </aside>
 
-<style>
+<style lang="postcss">
+    @import "/colors.css";
+    @import "/fonts.css";
+    @import "/spacing.css";
+    @import "/animations.css";
+
     #project-section {
         display: flex;
         flex-direction: column;
@@ -94,8 +99,7 @@
 
         padding: 10rem 7vw;
 
-        background: var(--background-pattern-primary-color);
-        background-size: 32px 32px;
+        @mixin fabric-background;
 
         color: rgb(var(--white-color));
     }
@@ -261,18 +265,6 @@
 
         align-self: end;
         cursor: pointer;
-    }
-
-    @keyframes appear-popup {
-        0% {
-            transform: translate(-50%, 130%) perspective(500px) rotateX(-40deg);
-        }
-        40% {
-            transform: translate(-50%, 70%) perspective(500px) rotateX(-40deg);
-        }
-        100% {
-            transform: translate(-50%, -50%);
-        }
     }
 
     @media (max-width: 1495px) {

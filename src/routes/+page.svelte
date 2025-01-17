@@ -4,6 +4,10 @@
     import Project from "$components/project/project.svelte";
     import MailForm from "$components/mailForm/mailForm.svelte";
     import Seo from "$components/seo/seo.svelte";
+    import Confetti from "$components/confetti/confetti.svelte";
+    import Piano from "$components/funText/piano.svelte";
+    import Photoshop from "$components/images/photoshopShowcase.svelte";
+    import Stars from "$components/images/stars.svelte"
     import { programmingLangages } from "../data/tools/programmingLangages";
     import { web } from "../data/tools/webTools";
     import { bdd } from "../data/tools/bddTools";
@@ -46,106 +50,6 @@
             numberOfColumnsSmall = 3;
             numberOfRowsSmall = 4;
         }
-
-    const noteDo = "/sounds/do.mp3";
-    const noteRe = "/sounds/re.mp3";
-    const noteMi = "/sounds/mi.mp3";
-    const noteFa = "/sounds/fa.mp3";
-    const noteSol = "/sounds/sol.mp3";
-
-    let confettiCanvas: HTMLCanvasElement;
-
-    // Thanks to Kcreation https://codepen.io/Kcreation-MTech/pen/JjgqWQg
-    // TypeScript conversion made by ChatGpt
-    interface Confetti {
-        x: number;
-        y: number;
-        size: number;
-        color: string;
-        speedX: number;
-        speedY: number;
-        rotation: number;
-    }
-
-    const confettis: Confetti[] = [];
-    const colors: string[] = ["#FF007A", "#7A00FF", "#00FF7A", "#FFD700", "#00D4FF"];
-
-    function createConfetti(): void {
-        const confetti: Confetti = {
-            x: Math.random() * confettiCanvas.width,
-            y: Math.random() * confettiCanvas.height - confettiCanvas.height,
-            size: Math.random() * 10 + 5,
-            color: colors[Math.floor(Math.random() * colors.length)],
-            speedX: Math.random() * 3 - 1.5,
-            speedY: Math.random() * 4.5 + 2,
-            rotation: Math.random() * 360,
-        };
-
-        confettis.push(confetti);
-    }
-
-    function animateConfetti(ctx: CanvasRenderingContext2D): void {
-        let offsetSecurity = 50;
-
-        ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
-        confettis.forEach((confetti, index) => {
-            confetti.x += confetti.speedX;
-            confetti.y += confetti.speedY;
-            confetti.rotation += confetti.speedX;
-
-            ctx.save();
-            ctx.translate(confetti.x, confetti.y);
-            ctx.rotate((confetti.rotation * Math.PI) / 180);
-            ctx.fillStyle = confetti.color;
-            ctx.fillRect(-confetti.size / 2, -confetti.size / 2, confetti.size, confetti.size);
-            ctx.restore();
-
-            if (confetti.y > confettiCanvas.height + offsetSecurity) {
-                confettis.splice(index, 1);
-            }
-        });
-
-        if (confettis.length > 0) {
-            requestAnimationFrame(() => animateConfetti(ctx));
-        }
-    }
-
-    onMount(() => {
-        const ctx = confettiCanvas.getContext("2d");
-        if (!ctx) {
-            console.error("Canvas rendering context not available.");
-            return;
-        }
-
-        confettiCanvas.width = window.innerWidth;
-        confettiCanvas.height = window.innerHeight;
-
-        for (let i = 0; i < 200; i++) {
-            createConfetti();
-        }
-
-        setTimeout(() => {
-            animateConfetti(ctx);
-        }, 800);
-
-        const soundDo = new Audio(noteDo);
-        const soundRe = new Audio(noteRe);
-        const soundMi = new Audio(noteMi);
-        const soundFa = new Audio(noteFa);
-        const soundSol = new Audio(noteSol);
-
-        const spanDo = document.getElementById("do");
-        const spanRe = document.getElementById("re");
-        const spanMi = document.getElementById("mi");
-        const spanFa = document.getElementById("fa");
-        const spanSol = document.getElementById("sol");
-
-        spanDo?.addEventListener("click", () => { soundDo.currentTime = 0; soundDo.play(); });
-        spanRe?.addEventListener("click", () => { soundRe.currentTime = 0; soundRe.play(); });
-        spanMi?.addEventListener("click", () => { soundMi.currentTime = 0; soundMi.play(); });
-        spanFa?.addEventListener("click", () => { soundFa.currentTime = 0; soundFa.play(); });
-        spanSol?.addEventListener("click", () => { soundSol.currentTime = 0; soundSol.play(); });
-    });
 </script>
 
 <svelte:window bind:innerWidth />
@@ -153,7 +57,7 @@
 <Seo />
 
 <header>
-    <canvas bind:this={confettiCanvas} id="confetti"></canvas>
+    <Confetti />
 
     <h1>
         {#each title as letter, index}
@@ -170,9 +74,7 @@
     <img id="arm-thumbs-up" class="arm" src="/images/hero-page/arm-thumbs-up.webp" alt="arm-thumbs-up"/>
     <img id="arm-ok" class="arm" src="/images/hero-page/arm-ok.webp" alt="arm-ok"/>
 
-    <svg id='star1' class="star-4-point" xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='50px' height='50px' viewBox='0 0 50 50' style='enable-background:new 0 0 50 50;' xml:space='preserve'><path d='M25,50c0,0,1.325-8.413,8.957-16.043C41.587,26.325,50,25,50,25l0,0c0,0-8.413-1.325-16.043-8.957C26.325,8.413,25,0,25,0 l0,0c0,0-1.325,8.413-8.957,16.043C8.413,23.675,0,25,0,25l0,0c0,0,8.413,1.325,16.043,8.957C23.675,41.588,25,50,25,50'/></svg>
-    <svg id='star2' class="star-4-point" xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='50px' height='50px' viewBox='0 0 50 50' style='enable-background:new 0 0 50 50;' xml:space='preserve'><path d='M25,50c0,0,1.325-8.413,8.957-16.043C41.587,26.325,50,25,50,25l0,0c0,0-8.413-1.325-16.043-8.957C26.325,8.413,25,0,25,0 l0,0c0,0-1.325,8.413-8.957,16.043C8.413,23.675,0,25,0,25l0,0c0,0,8.413,1.325,16.043,8.957C23.675,41.588,25,50,25,50'/></svg>
-    <svg id='star3' class="star-4-point" xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='50px' height='50px' viewBox='0 0 50 50' style='enable-background:new 0 0 50 50;' xml:space='preserve'><path d='M25,50c0,0,1.325-8.413,8.957-16.043C41.587,26.325,50,25,50,25l0,0c0,0-8.413-1.325-16.043-8.957C26.325,8.413,25,0,25,0 l0,0c0,0-1.325,8.413-8.957,16.043C8.413,23.675,0,25,0,25l0,0c0,0,8.413,1.325,16.043,8.957C23.675,41.588,25,50,25,50'/></svg>
+    <Stars />
 </header>
 
 <main>
@@ -182,15 +84,12 @@
 			<p>Je suis un créatif passionné par les défis techniques improbables, qui adore détourner ou automatiser des systèmes pour rendre possible des idées souvent amusantes ou farfelues, tout en y prenant un immense plaisir.</p>
 			<p>Un peu <span class="oui-c-est-le-cas">fou</span> peut être, j'ai du mal à m'imaginer autrement. Mais c’est justement cette douce folie qui me permet d’imaginer et de réaliser des projets uniques et ce site sera le reflet de ce que je suis.</p>
 			<p>L'une de mes principales qualités, c'est d'aborder la créativité avec légèreté – ça serait ennuyeux autrement. Je pense que c'est cette approche qui m’aide à innover.</p>
-			<p>En plus d'être développeur, j'aime passer mon temps à réaliser des photomontages, faire du <span id="do">p</span><span id="re">i</span><span id="mi">a</span><span id="fa">n</span><span id="sol">o</span> ou simplement jouer.</p>
+			<p>En plus d'être développeur, j'aime passer mon temps à réaliser des photomontages, faire du <Piano /> ou simplement jouer.</p>
 			<p>Si j'arrive à vous rendre heureux en visitant ce site, mon but sera atteint. Bon voyage !</p>
 			<a href="/a-propos">Vous voulez en savoir plus ?</a>
 		</span>
-        <div class="images">
-            <img src="/images/my-univers/TerrificOcean.webp" alt="Terrific ocean photoshop" loading="lazy">
-            <img src="/images/my-univers/FromTheSpace.webp" alt="From the space photoshop" loading="lazy">
-            <img src="/images/my-univers/MozART.webp" alt="MorART photoshop" loading="lazy">
-        </div>
+
+        <Photoshop />
     </section>
     <section id="my-tools">
         <h2 class="highlight">Mes outils</h2>
@@ -237,7 +136,12 @@
     </section>
 </main>
 
-<style>
+<style lang="postcss">
+    @import "/colors.css";
+    @import "/fonts.css";
+    @import "/spacing.css";
+    @import "/animations.css";
+
     header {
         display: flex;
         flex-direction: column;
@@ -245,8 +149,7 @@
         justify-content: center;
 
         height: 100vh;
-        background-image: var(--background-pattern-primary-color);
-        background-size: 32px 32px;
+        @mixin fabric-background;
 
         filter: var(--shadow-title);
     }
@@ -284,56 +187,6 @@
         transform: translate(-50%, -50%) rotate(180deg);
         cursor: pointer;
     }
-
-    #confetti {
-        position: absolute;
-    }
-
-    .star-4-point { /* https://stackoverflow.com/a/45285388 */
-        position: absolute;
-        background: url("data:image/svg+xml; utf8,");
-        background-size: cover;
-
-        transform: rotate(10deg);
-
-        filter: var(--shadow-title);
-
-        animation: twinkle 2s infinite alternate ease-in-out;
-    }
-
-    #star1 {
-        top: 25%;
-        left: 26%;
-
-        height: 92px;
-        width: 92px;
-    }
-
-    #star1 > path { fill: #FF007A; }
-
-    #star2 {
-        top: 58%;
-        left: 68%;
-
-        height: 32px;
-        width: 32px;
-
-        animation-delay: 0.6s;
-    }
-
-    #star2 > path { fill: #FFD700; }
-
-    #star3 {
-        top: 68%;
-        left: 38%;
-
-        height: 28px;
-        width: 28px;
-
-        animation-delay: 0.3s;
-    }
-
-    #star3 > path { fill: #00D4FF; }
 
     .arm {
         position: absolute;
@@ -392,8 +245,6 @@
         color: rgba(var(--darker-primary-color), 0.6);
     }
 
-    #my-univers div { grid-area: image; }
-
     .oui-c-est-le-cas {
         position: relative;
         top: -1px;
@@ -403,70 +254,12 @@
         transform: rotate(-10deg);
     }
 
-    #do, #re, #mi, #fa, #sol {
-        user-select: none;
-        cursor: pointer;
-    }
-
-    #do:hover, #re:hover, #mi:hover, #fa:hover, #sol:hover { color: rgb(var(--secondary-color)); }
-
-    .images {
-        display: flex;
-        align-items: center;
-    }
-
-    .images img {
-        position: relative;
-        object-fit: cover;
-        border-radius: var(--border-radius);
-        filter: var(--shadow-title);
-        cursor: pointer;
-        transition: all 0.4s ease-in-out;
-    }
-
-    .images img:nth-child(1) {
-        top: -1.5rem;
-        left: 0;
-        width: 18.5vw;
-        height: 28vw;
-    }
-
-    .images img:nth-child(2) {
-        top: 12rem;
-        left: -7rem;
-        width: 14vw;
-        height: 19vw;
-    }
-
-    .images img:nth-child(3) {
-        top: -1rem;
-        left: -12rem;
-        width: 17vw;
-        height: 21vw;
-    }
-
-    .images img:nth-child(1):hover {
-        width: 28vw;
-        left: -7rem;
-    }
-
-    .images img:nth-child(2):hover {
-        width: 19vw;
-        left: -7.5rem;
-    }
-
-    .images img:nth-child(3):hover {
-        width: 21vw;
-        left: -14.5rem;
-    }
-
     #my-tools {
         min-height: 100vh;
         padding: 12rem 7vw;
 
         color: rgb(var(--white-color));
-        background-image: var(--background-pattern-primary-color);
-        background-size: 32px 32px;
+        @mixin fabric-background;
 
         filter: var(--shadow-title-invert) var(--shadow-title);
     }
@@ -494,8 +287,7 @@
         padding: 12rem 7vw;
 
         color: rgb(var(--white-color));
-        background-image: var(--background-pattern-primary-color);
-        background-size: 32px 32px;
+        @mixin fabric-background;
 
         filter: var(--shadow-title-invert);
     }
@@ -515,42 +307,6 @@
         display: flex;
         flex-direction: column;
         gap: var(--medium-spacing);
-    }
-
-    @keyframes floating {
-        0% {
-            transform: translateY(0);
-        }
-        100% {
-            transform: translateY(-25px);
-        }
-    }
-
-    @keyframes rotating {
-        0% {
-            transform: rotate(-2deg);
-        }
-        100% {
-            transform: rotate(10deg);
-        }
-    }
-
-    @keyframes rotating2 {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(-15deg);
-        }
-    }
-
-    @keyframes twinkle {
-        0% {
-            transform: rotate(5deg);
-        }
-        100% {
-            transform: rotate(-5deg);
-        }
     }
 
     @media (max-width: 1815px) {
@@ -574,22 +330,6 @@
             grid-template-rows: 4rem 1fr 1fr;
             grid-template-columns: 1fr;
             padding: 10rem 7vw 10rem 7vw;
-        }
-
-        .images {
-            display: flex;
-            height: 100%;
-            border-radius: var(--border-radius);
-
-            min-height: 0;
-        }
-
-        .images img {
-            top: 0 !important;
-            left: 0 !important;
-
-            width: 33% !important;
-            height: 100% !important;
         }
     }
 
@@ -631,7 +371,5 @@
             min-height: 0;
             grid-template-rows: 4rem 1fr;
         }
-
-        .images { display: none; }
     }
 </style>

@@ -54,14 +54,17 @@
     </div>
 </section>
 
-<style>
+<style lang="postcss">
+    @import "/colors.css";
+    @import "/fonts.css";
+    @import "/spacing.css";
+
     #a-propos {
         height: var(--100-height-without-border);
 
         padding: 10rem 7vw;
 
-        background: var(--background-pattern-primary-color);
-        background-size: 32px 32px;
+        @mixin fabric-background;
 
         color: rgb(var(--white-color));
 

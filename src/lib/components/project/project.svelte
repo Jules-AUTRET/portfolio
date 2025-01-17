@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<style>
+<style lang="postcss">
     .project {
         display: flex;
     }

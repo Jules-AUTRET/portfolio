@@ -39,7 +39,7 @@
     </div>
 </nav>
 
-<style>
+<style lang="postcss">
     nav {
         position: fixed;
         bottom: 4.5vh;

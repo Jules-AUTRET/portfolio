@@ -36,7 +36,11 @@
 
 <div id="border-cut"></div>
 
-<style>
+<style lang="postcss">
+	@import "/colors.css";
+	@import "/fonts.css";
+	@import "/spacing.css";
+
 	#main-content {
 		padding: var(--small-spacing);
 	}
@@ -64,8 +68,7 @@
 		width: 100vw;
 		height: 100vh;
 
-		background-image: var(--background-pattern-primary-color);
-		background-size: 32px 32px;
+		@mixin fabric-background;
 
 		color: rgb(var(--white-color));
 
