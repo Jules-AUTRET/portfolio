@@ -62,7 +62,8 @@
     .project-description {
         font-family: var(--paragraph-font);
         font-size: var(--paragraph-font-size);
-        color: rgb(var(--darker-primary-color));
+        font-weight: bold;
+        color: rgba(var(--darker-primary-color), 0.8);
     }
 
     .project-description a {

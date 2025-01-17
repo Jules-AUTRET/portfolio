@@ -85,7 +85,9 @@
 
     #form-return {
         text-align: center;
+        font-family: var(--paragraph-font);
         font-size: 1rem;
+        font-weight: bold;
 
         color: rgb(var(--white-color));
     }
