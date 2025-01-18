@@ -2,13 +2,13 @@
     import { onMount } from 'svelte';
     import Seo from "$components/seo/seo.svelte";
 
-    export let data;
+    let { data } = $props();
     const { projectData } = data;
 
-    let imagesHolder: HTMLDivElement;
-    let popup: HTMLElement;
-    let popupImage: HTMLImageElement;
-    let closeButton: SVGSVGElement;
+    let imagesHolder: HTMLDivElement = $state();
+    let popup: HTMLElement = $state();
+    let popupImage: HTMLImageElement = $state();
+    let closeButton: SVGSVGElement = $state();
 
     onMount(() => {
         Array.from(imagesHolder.children).forEach((image) => {

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-    export let isClosedMessageVisible;
+    let { isClosedMessageVisible = $bindable() } = $props();
 
     onMount(() => {
         const closeButton = document.getElementById("close-button");

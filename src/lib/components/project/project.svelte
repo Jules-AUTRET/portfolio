@@ -1,7 +1,11 @@
 <script lang="ts">
     import type { Project } from "../../../data/projects/projects";
 
-    export let project: Project;
+    interface Props {
+        project: Project;
+    }
+
+    let { project }: Props = $props();
 </script>
 
 <div class="project">

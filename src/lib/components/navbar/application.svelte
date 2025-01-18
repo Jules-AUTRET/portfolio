@@ -1,7 +1,5 @@
 <script lang="ts">
-    export let name
-    export let url
-    export let image
+    let { name, url, image } = $props();
 </script>
 
 <a class="app" href="{url}">

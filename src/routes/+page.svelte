@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { run } from 'svelte/legacy';
+
     import { onMount } from "svelte";
     import Window from "$components/tools/window.svelte";
     import Project from "$components/project/project.svelte";
@@ -16,40 +18,42 @@
 
     let title = "Jules";
 
-    let innerWidth: number;
-    let numberOfColumnsBig: number;
-    let numberOfRowsBig: number;
-    let numberOfColumnsSmall: number;
-    let numberOfRowsSmall: number;
+    let innerWidth: number = $state();
+    let numberOfColumnsBig: number = $state();
+    let numberOfRowsBig: number = $state();
+    let numberOfColumnsSmall: number = $state();
+    let numberOfRowsSmall: number = $state();
 
-    export let form;
+    let { form } = $props();
 
-    $:  if (innerWidth <= 660) {
-            numberOfColumnsBig = 2;
-            numberOfRowsBig = 5;
+    run(() => {
+        if (innerWidth <= 660) {
+                numberOfColumnsBig = 2;
+                numberOfRowsBig = 5;
 
-            numberOfColumnsSmall = 2;
-            numberOfRowsSmall = 2;
+                numberOfColumnsSmall = 2;
+                numberOfRowsSmall = 2;
 
-        } else if (innerWidth <= 780) {
-            numberOfColumnsBig = 3;
-            numberOfRowsBig = 4;
+            } else if (innerWidth <= 780) {
+                numberOfColumnsBig = 3;
+                numberOfRowsBig = 4;
 
-            numberOfColumnsSmall = 3;
-            numberOfRowsSmall = 2;
-        } else if (innerWidth <= 1815) {
-            numberOfColumnsBig = 4;
-            numberOfRowsBig = 3;
+                numberOfColumnsSmall = 3;
+                numberOfRowsSmall = 2;
+            } else if (innerWidth <= 1815) {
+                numberOfColumnsBig = 4;
+                numberOfRowsBig = 3;
 
-            numberOfColumnsSmall = 4;
-            numberOfRowsSmall = 1;
-        } else {
-            numberOfColumnsBig = 3;
-            numberOfRowsBig = 4;
+                numberOfColumnsSmall = 4;
+                numberOfRowsSmall = 1;
+            } else {
+                numberOfColumnsBig = 3;
+                numberOfRowsBig = 4;
 
-            numberOfColumnsSmall = 3;
-            numberOfRowsSmall = 4;
-        }
+                numberOfColumnsSmall = 3;
+                numberOfRowsSmall = 4;
+            }
+    });
 </script>
 
 <svelte:window bind:innerWidth />

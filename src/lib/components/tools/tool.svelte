@@ -5,12 +5,21 @@
 	import { cubicOut } from 'svelte/easing';
 	import { Mastery } from '../../../data/tools/tool';
 
-	export let image;
-    export let alt;
-    export let description;
-    export let mastery: Mastery;
+    interface Props {
+        image: any;
+        alt: any;
+        description: any;
+        mastery: Mastery;
+    }
 
-    let color: string;
+    let {
+        image,
+        alt,
+        description,
+        mastery
+    }: Props = $props();
+
+    let color: string = $state();
     switch (mastery) {
         case Mastery.Medium:
             color = "#a1d99b";
@@ -23,16 +32,16 @@
 			break;
     }
 
-    let innerWidth: number;
-    let innerHeight: number;
+    let innerWidth: number = $state();
+    let innerHeight: number = $state();
 
-    let imgElement: HTMLImageElement;
-    let pElement: HTMLParagraphElement;
+    let imgElement: HTMLImageElement = $state();
+    let pElement: HTMLParagraphElement = $state();
 
-    let posX: Tweened<number>;
-    let posY: Tweened<number>;
+    let posX: Tweened<number> = $state();
+    let posY: Tweened<number> = $state();
 
-    let isHovering = false;
+    let isHovering = $state(false);
 
     function handleMouseEnter() {
         isHovering = true;
@@ -89,8 +98,8 @@
     alt="{alt}"
     loading="lazy"
     bind:this={imgElement}
-    on:mouseenter={handleMouseEnter}
-    on:mouseleave={handleMouseLeave}
+    onmouseenter={handleMouseEnter}
+    onmouseleave={handleMouseLeave}
 >
 
 <style lang="postcss">

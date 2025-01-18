@@ -10,7 +10,7 @@
         {name: "Mon CV", url: "/cv/Jules-AUTRET-cv.pdf", image: "/images/navbar/icon-cv.png"},
     ]
 
-    let moreAppButton: SVGSVGElement;
+    let moreAppButton: SVGSVGElement = $state();
 
     onMount(() => {
         moreAppButton.addEventListener("click", () => {

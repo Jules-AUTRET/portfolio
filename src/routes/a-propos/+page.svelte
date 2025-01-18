@@ -7,7 +7,7 @@
     const differenceDate = Date.now() - birthDate.getTime();
     const age = Math.floor((differenceDate / (1000 * 3600 * 24)) / 365.25);
 
-    let topSecret: HTMLImageElement;
+    let topSecret: HTMLImageElement = $state();
     const weirdCodeWithoutAnyMeaning: string[] = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
     let anotherListOfStringWithImSureNoMeaning: string[] = [];
 

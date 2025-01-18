@@ -1,12 +1,21 @@
 <script lang="ts">
     import Tool from "./tool.svelte";
 
-    export let numberOfColumns: number = 3;
-    export let numberOfRows: number;
-    export let gridPositionName: string;
-    export let listTools;
+    interface Props {
+        numberOfColumns?: number;
+        numberOfRows: number;
+        gridPositionName: string;
+        listTools: any;
+    }
 
-    $: gridTemplate = `repeat(${numberOfRows}, 1fr) / repeat(${numberOfColumns}, 1fr)`;
+    let {
+        numberOfColumns = 3,
+        numberOfRows,
+        gridPositionName,
+        listTools
+    }: Props = $props();
+
+    let gridTemplate = $derived(`repeat(${numberOfRows}, 1fr) / repeat(${numberOfColumns}, 1fr)`);
 </script>
 
 <div class="window" style="grid-area: {gridPositionName}">

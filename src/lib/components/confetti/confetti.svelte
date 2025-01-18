@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
 
-    let confettiCanvas: HTMLCanvasElement;
+    let confettiCanvas: HTMLCanvasElement = $state();
 
     // Thanks to Kcreation https://codepen.io/Kcreation-MTech/pen/JjgqWQg
     // TypeScript conversion made by ChatGpt
